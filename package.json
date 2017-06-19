@@ -1,0 +1,15 @@
+{
+  "name": "npm-init-grid_challenge",
+  "version": "1.0.0",
+  "description": "grid challenge",
+  "main": "maxtrix.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "grid",
+    "challenge"
+  ],
+  "author": "John Atkins",
+  "license": "ISC"
+}
