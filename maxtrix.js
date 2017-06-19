@@ -11,22 +11,18 @@ function make2DArray(rows, columns, fill){
   return matrix;
 }
 
-firstArray = make2DArray(5, 10, "spam");
+firstArray = make2DArray(5, 10, "ham");
 
 function expand2DArray(firstArray, rows, columns, fill){
-  let newRows = rows - firstArray.length;
-
-  for (var i = firstArray.length; i < rows; i++) {
-      firstArray.push([]);
-      let newCols = columns - firstArray[i].length;
+  for (var i = 0; i < rows; i++) {
+      if (firstArray[i] == undefined) { firstArray.push([]); }
       for (var j = firstArray[i].length; j < columns; j++) {
-          firstArray[i].push([fill]);
+          if (firstArray[i][j] == undefined) { firstArray[i].push([fill]); }
       }
   }
-
   return firstArray;
 }
 
-secondArray = expand2DArray(firstArray, 10, 15, "ham");
+secondArray = expand2DArray(firstArray, 10, 15, "spam");
 
 console.log(secondArray);
