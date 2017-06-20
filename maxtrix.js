@@ -1,30 +1,18 @@
-
-function make2DArray(rows, columns, fill){
-  let matrix = [];
-  for (var i = 0; i < rows; i++) {
-      matrix.push([]);
-      for (var j = 0; j < columns; j++) {
-          matrix[i].push([fill]);
-      }
-  }
-  return matrix;
-}
-
-firstArray = make2DArray(5, 10, "ham");
-
 function expand2DArray(rows, columns, fill, array){
-  if (array == undefined ){ let array = []; }
+  if (array){}
+  else {  array = []; }
 
   let len1 = (function() {
-    if (array.length > rows) { return array.length; }
+    if (array && array.length > rows) { return array.length; }
       else { return rows; }
   })();
   for (var i = 0; i < len1; i++) {
     if (i > rows-1) {
       array.pop();
       continue;
-    }
-    else if (array[i] == undefined) {
+    } else if (array[i]) {
+      array[i].push([]);
+    } else {
       array.push([]);
     }
     let len2 = (function() {
@@ -40,10 +28,9 @@ function expand2DArray(rows, columns, fill, array){
   return array;
 }
 
-//secondArray = expand2DArray(firstArray, 10, 15, "spam");
 
-//console.log(secondArray);
 
-secondArray = expand2DArray(15, 15, "spam", firstArray);
-secondArray = expand2DArray(3, 3, "spam", firstArray);
-console.log(secondArray);
+let firstArray = expand2DArray(5, 10, "ham");
+let secondArray = expand2DArray(15, 15, "spam", firstArray);
+let thirdArray = expand2DArray(7, 8, "spam", secondArray);
+console.log(thirdArray);
